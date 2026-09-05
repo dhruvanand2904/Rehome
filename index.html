@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReHome - Premium Marketplace for Pre-owned Goods</title>
+    <link rel="icon" type="image/png" href="uploads/assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="header">
+    <div class="container">
+        <nav class="nav">
+            <!-- Define App URL for JS -->
+            <script>window.APP_URL = 'https://rehome.in';</script>
+            <!-- 1. Brand -->
+            <a href="index.html" class="nav-brand logo-animated"
+                style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <img src="uploads/assets/Logo.png" alt="ReHome Logo"
+                    style="height: 50px; width: auto; object-fit: contain;">
+                <small class="desktop-only-auth"
+                    style="color: grey !important; font-size: 0.8rem; margin-left: 0.5rem;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> BLR
+                </small>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" title="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- 2. Search Bar -->
+            <div class="nav-search">
+                <form action="buyer/products" method="GET" class="nav-search-form">
+                    <input type="text" name="search" class="nav-search-input" placeholder="What are you searching for?"
+                        value="">
+                    <button type="submit" class="nav-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- 3. Navigation Links (Desktop) -->
+            <div class="nav-menu" id="nav-menu">
+                <!-- <a href="https://rehome.in" class="nav-link">Home</a> -->
+                <a href="buyer/products" class="nav-link">
+                    </i> Buy
+                </a>
+                <a href="buyer/cart"
+                    class="nav-link">
+                    Sell
+                </a>
+                <a href="buyer/about" class="nav-link">About</a>
+                <!-- <a href="https://rehome.in/buyer/contact" class="nav-link">Contact</a> -->
+
+                                    <div class="mobile-only-links">
+                        <a href="buyer/cart" class="nav-link">
+                            <i class="fas fa-sign-in-alt" style="margin-right: 0.5rem; color: var(--gray-500);"></i> Login
+                        </a>
+                        <a href="auth/register" class="nav-link"
+                            style="color: var(--primary); font-weight: 700;">
+                            <i class="fas fa-user-plus" style="margin-right: 0.5rem;"></i> Get Started
+                        </a>
+                    </div>
+                            </div>
+
+            <!-- 4. Actions & Menu -->
+            <div class="nav-actions">
+                <!-- Wishlist (Visible to all) -->
+                <a href="buyer/wishlist" class="nav-icon-link" title="Wishlist">
+                    <i class="far fa-heart"></i>
+                </a>
+
+                <!-- Cart (Visible to all) -->
+                <a href="buyer/cart" class="nav-icon-link" title="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+
+                <div class="nav-separator"></div>
+
+                                    <!-- Guest View -->
+                    <div class="desktop-only-auth" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <a href="buyer/cart" class="nav-link">Login</a>
+                        <a href="auth/register" class="btn btn-primary btn-sm">Get Started</a>
+                    </div>
+                            </div>
+        </nav>
+    </div>
+</header>
+    <!-- Hero Section -->
+    <section class="section" style="padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="fade-in-up hero-content">
+                    <h1
+                        style="margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--primary-dark), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        The Trusted Marketplace for <br> Second-Hand Treasures.
+                    </h1>
+                    <p style="margin-bottom: 2rem; color: var(--gray-600);">
+                        Buy with confidence, sell with ease. We are the trusted marketplace for curated, pre-loved home goods. Every item is carefully inspected, giving you a sustainable way to create a home you love.
+                    </p>
+                    <div class="flex gap-2 hero-buttons">
+                        <a href="buyer/products" class="btn btn-primary"
+                            style="padding: 1rem 2rem; font-size: 1.125rem;">
+                            <i class="fas fa-shopping-bag"></i> Buy Products
+                        </a>
+                        <a href="auth/register" class="btn btn-secondary"
+                            style="padding: 1rem 2rem; font-size: 1.125rem;">
+                            <i class="fas fa-store"></i> Sell to Us
+                        </a>
+                    </div>
+                </div>
+                <div class="fade-in-up" style="animation-delay: 0.2s; position: relative;">
+                    <div class="card-3d" style="background: linear-gradient(135deg, #f3f4f6, #fff); border: none;">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop"
+                            alt="Modern Home Interior"
+                            style="border-radius: var(--radius-lg); width: 100%; box-shadow: var(--shadow-2xl);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="flex-between mb-4">
+                <h2>Browse Categories</h2>
+                <a href="buyer/products" class="btn btn-outline" style="font-size: 0.875rem;">View
+                    All</a>
+            </div>
+
+            <div class="grid grid-4">
+                                    <a href="buyer/products?category=2" class="card-3d"
+                        style="text-align: center; padding: 0; text-decoration: none; color: inherit; overflow: hidden;">
+                        <div style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" alt="Furniture"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">
+                                Furniture                            </h3>
+                            <div style="font-size: 0.875rem; color: var(--gray-500);">
+                                0 Products
+                            </div>
+                        </div>
+                    </a>
+                                    <a href="buyer/products?category=1" class="card-3d"
+                        style="text-align: center; padding: 0; text-decoration: none; color: inherit; overflow: hidden;">
+                        <div style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop" alt="Electronics"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">
+                                Electronics                            </h3>
+                            <div style="font-size: 0.875rem; color: var(--gray-500);">
+                                0 Products
+                            </div>
+                        </div>
+                    </a>
+                                    <a href="buyer/products?category=4" class="card-3d"
+                        style="text-align: center; padding: 0; text-decoration: none; color: inherit; overflow: hidden;">
+                        <div style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&h=300&fit=crop" alt="Home Appliances"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">
+                                Home Appliances                            </h3>
+                            <div style="font-size: 0.875rem; color: var(--gray-500);">
+                                0 Products
+                            </div>
+                        </div>
+                    </a>
+                                    <a href="buyer/products?category=11" class="card-3d"
+                        style="text-align: center; padding: 0; text-decoration: none; color: inherit; overflow: hidden;">
+                        <div style="height: 180px; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&h=300&fit=crop" alt="Home Decor"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.125rem; margin-bottom: 0.5rem;">
+                                Home Decor                            </h3>
+                            <div style="font-size: 0.875rem; color: var(--gray-500);">
+                                0 Products
+                            </div>
+                        </div>
+                    </a>
+                            </div>
+        </div>
+    </section>
+
+    <!-- Why ReHome? -->
+    <section class="section" style="background: var(--bg-soft-beige);">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="mb-2">Why ReHome?</h2>
+                <p style="font-size: 1.125rem; color: var(--gray-600);">We believe in a more sustainable and stylish way to furnish your life.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <!-- Card 1: Sustainable -->
+                <div class="card-3d text-center">
+                    <div class="card-icon-wrapper card-icon-primary">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sustainable</h3>
+                    <p>Join the circular economy. Reduce waste and give beautiful items a second chance to be loved.</p>
+                </div>
+
+                <!-- Card 2: Curated & Quality -->
+                <div class="card-3d text-center">
+                    <div class="card-icon-wrapper card-icon-secondary">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Curated & Quality</h3>
+                    <p>Every piece is hand-picked by our team for quality, style, and durability. No compromises.</p>
+                </div>
+
+                <!-- Card 3: Fair Price -->
+                <div class="card-3d text-center">
+                    <div class="card-icon-wrapper card-icon-accent">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Fair Price</h3>
+                    <p>We offer fair market value for your items and provide beautiful, affordable pieces for buyers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="mb-2">How It Works</h2>
+                <p style="font-size: 1.125rem; color: var(--gray-600);">Selling to ReHome is simple and rewarding.</p>
+            </div>
+
+            <div class="grid grid-4">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="step-circle">1</div>
+                    <h4 style="font-size: 1.125rem; margin-bottom: 0.75rem;">Submit Your Item</h4>
+                    <p style="color: var(--gray-600); font-size: 0.9375rem;">
+                        Tell us about your item and get a quote from our team.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="step-circle">2</div>
+                    <h4 style="font-size: 1.125rem; margin-bottom: 0.75rem;">Get an Offer</h4>
+                    <p style="color: var(--gray-600); font-size: 0.9375rem;">
+                        We review your submission and provide a fair and competitive offer.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="step-circle">3</div>
+                    <h4 style="font-size: 1.125rem; margin-bottom: 0.75rem;">We Collect & Pay</h4>
+                    <p style="color: var(--gray-600); font-size: 0.9375rem;">
+                        Schedule a pickup and get paid instantly upon collection.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="step-circle">4</div>
+                    <h4 style="font-size: 1.125rem; margin-bottom: 0.75rem;">It Gets a New Home</h4>
+                    <p style="color: var(--gray-600); font-size: 0.9375rem;">
+                        We find your item a new loving home, refurbished and ready for its next chapter.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-4">Fresh Arrivals</h2>
+            <div class="grid grid-4" id="products-grid">
+                                    <div class="text-center" style="grid-column: 1 / -1; padding: 4rem;">
+                        <p>No products available yet. Be the first to list!</p>
+                        <a href="auth/register" class="btn btn-primary mt-2">Start Selling</a>
+                    </div>
+                            </div>
+        </div>
+    </section>
+
+    <!-- The ReHome Advantage -->
+    <section class="section" style="background: var(--bg-soft-beige);">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="mb-2">The ReHome Advantage</h2>
+                <p style="font-size: 1.125rem; color: var(--gray-600);">Experience the best of pre-loved shopping with our premium guarantees.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card-3d text-center" style="background: var(--white);">
+                    <div class="card-icon-wrapper card-icon-primary" style="margin: 0 auto 1.5rem auto;">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Doorstep Pickup & Delivery</h3>
+                    <p>Enjoy a hassle-free experience with convenient at-home pickups and secure deliveries right to your door.</p>
+                </div>
+
+                <div class="card-3d text-center" style="background: var(--white);">
+                    <div class="card-icon-wrapper card-icon-secondary" style="margin: 0 auto 1.5rem auto;">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Get Warranty on Products</h3>
+                    <p>Shop with confidence. Many of our curated items come with a limited ReHome warranty for your peace of mind.</p>
+                </div>
+
+                <div class="card-3d text-center" style="background: var(--white);">
+                    <div class="card-icon-wrapper card-icon-accent" style="margin: 0 auto 1.5rem auto;">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <h3>3-Day 100% Return Guarantee</h3>
+                    <p>If the item doesn't meet your expectations or match the description, return it within 3 days for a full refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h3 style="color: var(--primary); margin-top: 1rem; margin-bottom: 1.5rem; font-size: 1.25rem;">About ReHome</h3>
+                
+                <div class="accordion">
+                    <!-- Q1 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> What is ReHome?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                ReHome is a platform that enables people to buy and sell pre-loved home goods such as furniture, décor, and household items. Our mission is to make sustainable living simple by giving quality items a second life.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> What is ReHome’s mission?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Our mission is to reduce waste, promote reuse, and build a circular economy for home goods — making quality living affordable and environmentally responsible.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> How is ReHome different?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                ReHome focuses exclusively on home goods, with an emphasis on quality, trust, and sustainability, rather than cluttered or unrelated listings.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Why choose pre-loved?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Pre-loved items help reduce landfill waste, conserve resources, and offer great value — without compromising on style or functionality.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.25rem;">Buying & Selling on ReHome</h3>
+
+                <div class="accordion">
+                    <!-- Q5 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Process of selling?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Selling on ReHome is simple. Submit your item details, upload photos, and our team reviews it to provide a fair valuation. Once approved, we arrange pickup and payment.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Why sell through ReHome?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                ReHome helps you declutter responsibly, earn value from unused items, and contribute to sustainable living by giving your items a second life.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> What kind of items can I sell?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                You can sell furniture, home décor, appliances, electronics, and other household goods that are owned by you and in usable condition.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Need an account to buy or sell?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Yes, creating an account helps ensure transparency, secure transactions, and a better experience for both buyers and sellers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Is valuation free?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Yes. Submitting your item for valuation is completely free and does not obligate you to sell.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.25rem;">Ownership & Verification</h3>
+
+                <div class="accordion">
+                    <!-- Q10 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Why questions on ownership?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                These checks help prevent unauthorized or stolen listings and ensure a safe, trustworthy marketplace.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q11 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Need original bill or warranty?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                No. While having a bill or warranty is helpful, it is not mandatory.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q12 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> What if I don’t have all docs?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                You can still submit your item. Honest disclosure helps us review your listing fairly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q13 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span class="accordion-question">
+                                <i class="fas fa-question-circle"></i> Incorrect info provided?
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                Listings with misleading or false information may be rejected or removed to maintain trust on the platform.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionItem = button.parentElement;
+                
+                // Close other items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                accordionItem.classList.toggle('active');
+            });
+        });
+    </script>
+    <!-- Footer -->
+<footer style="background: var(--gray-900); color: var(--gray-400); padding: 4rem 0;">
+    <div class="container">
+        <div class="grid grid-4" style="gap: 4rem;">
+            <div>
+                <h3 style="color: white; margin-bottom: 1.5rem;">ReHome</h3>
+                <p style="font-size: 0.875rem;">
+                    Sustainable Living Starts Here
+                </p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                    <a href="https://wa.me/919250385918" target="_blank" style="color: white; font-size: 1.25rem;"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/rehome_in?igsh=YjFpZmQ3cnIwYW5i&utm_source=qr" target="_blank"
+                        style="color: white; font-size: 1.25rem;"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="color: white; font-size: 1.125rem; margin-bottom: 1.5rem;">Quick Links</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <li><a href="buyer/about" style="text-decoration: none; color: inherit;">About
+                            Us</a></li>
+                    <li><a href="buyer/contact" style="text-decoration: none; color: inherit;">Contact
+                            Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: white; font-size: 1.125rem; margin-bottom: 1.5rem;">Categories</h4>
+                <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                            <li><a href="buyer/products?category=1"
+                                style="text-decoration: none; color: inherit;">
+                                Electronics                            </a></li>
+                                            <li><a href="buyer/products?category=2"
+                                style="text-decoration: none; color: inherit;">
+                                Furniture                            </a></li>
+                                            <li><a href="buyer/products?category=4"
+                                style="text-decoration: none; color: inherit;">
+                                Home Appliances                            </a></li>
+                                            <li><a href="buyer/products?category=11"
+                                style="text-decoration: none; color: inherit;">
+                                Home Decor                            </a></li>
+                                    </ul>
+            </div>
+            <div>
+                <h4 style="color: white; font-size: 1.125rem; margin-bottom: 1.5rem;">Contact</h4>
+                <p style="font-size: 0.875rem;">
+                    Email: support@rehome.in<br>
+                    Phone: +91 92503 85918<br>
+                    Address: Harohalli, Bangalore, 562112
+                </p>
+            </div>
+        </div>
+        <div
+            style="border-top: 1px solid var(--gray-800); margin-top: 3rem; padding-top: 2rem; text-align: center; font-size: 0.875rem;">
+            © 2026 ReHome Marketplace. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script></body>
+
+</html>
